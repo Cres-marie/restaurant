@@ -5,12 +5,12 @@ import 'package:restaurant/constants/constants.dart';
 
 
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _SignUpScreenState extends State<SignUpScreen>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
 
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen>
                       slideDirection: SlideDirection.fromLeft,
                       animationController: _animationController,
                       child: Text(
-                        "Hello There, \nWelcome Back",
+                        "Create Your Account",
                         style: h1
                       ),
                     ),
@@ -80,6 +80,23 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                         child: Column(
                           children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(10.0),
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: Colors.grey[100]!,
+                                  ),
+                                ),
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Username",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                            ),
                             Container(
                               padding: EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
