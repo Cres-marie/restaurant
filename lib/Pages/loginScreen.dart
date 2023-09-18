@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/Pages/signUpScreen.dart';
 import 'package:restaurant/components/Animations/fadeAnimation.dart';
 import 'package:restaurant/components/Animations/sildeAnimation.dart';
 import 'package:restaurant/constants/constants.dart';
-
-
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -32,7 +31,6 @@ class _LoginScreenState extends State<LoginScreen>
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-
           // Add the top clipper
           ClipPath(
             clipper: TopClipper(), // Use the custom clipper
@@ -45,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
               SizedBox(
                 height: 250,
               ),
@@ -53,16 +50,13 @@ class _LoginScreenState extends State<LoginScreen>
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:[
+                  children: [
                     SlideAnimation(
                       position: 1,
                       itemCount: 8,
                       slideDirection: SlideDirection.fromLeft,
                       animationController: _animationController,
-                      child: Text(
-                        "Hello There, \nWelcome Back",
-                        style: h1
-                      ),
+                      child: Text("Hello There, \nWelcome Back", style: h1),
                     ),
                     SizedBox(
                       height: 40,
@@ -120,21 +114,16 @@ class _LoginScreenState extends State<LoginScreen>
                     SizedBox(
                       height: 20.0,
                     ),
-                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         SlideAnimation(
-                            position: 1,
-                            itemCount: 8,
-                            slideDirection: SlideDirection.fromLeft,
-                            animationController: _animationController,
-                            child: Text(
-                              "Forgot Password?",
-                              style: links
-                            ),
-                          
+                          position: 1,
+                          itemCount: 8,
+                          slideDirection: SlideDirection.fromLeft,
+                          animationController: _animationController,
+                          child: Text("Forgot Password?", style: links),
                         ),
                       ],
                     ),
@@ -154,17 +143,13 @@ class _LoginScreenState extends State<LoginScreen>
                           color: buttonColor,
                         ),
                         child: Center(
-                          child: Text(
-                            "Login",
-                            style: buttonText
-                          ),
+                          child: Text("Login", style: buttonText),
                         ),
                       ),
                     ),
                     SizedBox(
                       height: 60.0,
                     ),
-                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -182,16 +167,24 @@ class _LoginScreenState extends State<LoginScreen>
                             ),
                           ),
                         ),
-                        SizedBox(width: 5,),
+                        SizedBox(
+                          width: 5,
+                        ),
                         SlideAnimation(
                           position: 1,
                           itemCount: 8,
                           slideDirection: SlideDirection.fromLeft,
                           animationController: _animationController,
                           child: Center(
-                            child: Text(
-                              "Sign Up",
-                              style: links
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignUpScreen(),
+                                    ));
+                              },
+                              child: Text("Sign Up", style: links),
                             ),
                           ),
                         ),
@@ -242,8 +235,6 @@ class FadeAnimation extends StatelessWidget {
     );
   }
 }
-
-
 
 class TopClipper extends CustomClipper<Path> {
   @override

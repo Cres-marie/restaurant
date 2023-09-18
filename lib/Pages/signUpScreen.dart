@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/Pages/loginScreen.dart';
 import 'package:restaurant/components/Animations/fadeAnimation.dart';
 import 'package:restaurant/components/Animations/sildeAnimation.dart';
 import 'package:restaurant/constants/constants.dart';
@@ -138,23 +139,8 @@ class _SignUpScreenState extends State<SignUpScreen>
                       height: 20.0,
                     ),
                     
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        SlideAnimation(
-                            position: 1,
-                            itemCount: 8,
-                            slideDirection: SlideDirection.fromLeft,
-                            animationController: _animationController,
-                            child: Text(
-                              "Forgot Password?",
-                              style: links
-                            ),
-                          
-                        ),
-                      ],
-                    ),
+                    
+                    
                     SizedBox(
                       height: 20.0,
                     ),
@@ -172,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                         ),
                         child: Center(
                           child: Text(
-                            "Login",
+                            "Sign Up",
                             style: buttonText
                           ),
                         ),
@@ -192,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                           animationController: _animationController,
                           child: Center(
                             child: Text(
-                              "Dont have an account?",
+                              "Have an account already?",
                               // style: TextStyle(
                               //   color: Colors.pink[200],
                               // ),
@@ -206,9 +192,18 @@ class _SignUpScreenState extends State<SignUpScreen>
                           slideDirection: SlideDirection.fromLeft,
                           animationController: _animationController,
                           child: Center(
-                            child: Text(
-                              "Sign Up",
-                              style: links
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginScreen(),
+                                    ));
+                              },
+                              child: Text(
+                                "Sign In",
+                                style: links
+                              ),
                             ),
                           ),
                         ),
