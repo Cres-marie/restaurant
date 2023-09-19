@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant/Pages/signUpScreen.dart';
 import 'package:restaurant/components/Animations/fadeAnimation.dart';
 import 'package:restaurant/components/Animations/sildeAnimation.dart';
+import 'package:restaurant/components/bottomBar.dart';
 import 'package:restaurant/constants/constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -135,15 +136,24 @@ class _LoginScreenState extends State<LoginScreen>
                       itemCount: 8,
                       slideDirection: SlideDirection.fromLeft,
                       animationController: _animationController,
-                      child: Container(
-                        height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 60),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: buttonColor,
-                        ),
-                        child: Center(
-                          child: Text("Login", style: buttonText),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => BottomBar(),
+                          ));
+                        },
+                        child: Container(
+                          height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 60),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: buttonColor,
+                          ),
+                          child: Center(
+                            child: Text("Login", style: buttonText),
+                          ),
                         ),
                       ),
                     ),
